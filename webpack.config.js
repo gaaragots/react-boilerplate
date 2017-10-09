@@ -99,7 +99,7 @@ module.exports = {
       {
         test: /\.jsx?/,
         include: APP_DIR,
-        use: [{ loader: 'react-hot-loader' }, { loader: 'babel-loader' }]
+        use: [{ loader: 'babel-loader' }]
       },
       {
         test: /\.(scss|css)$/,

@@ -1,4 +1,4 @@
-import uuid from 'node-uuid'
+import v4 from 'uuid'
 
 export const types = {
   NOTIFICATION_OPENED: 'NOTIFICATION_OPENED',
@@ -18,7 +18,7 @@ export const actions = {
     return {
       type: types.NOTIFICATION_OPENED,
       notification: {
-        _id: uuid.v4(),
+        _id: v4(),
         message,
         autoHide,
         actionMessage,
