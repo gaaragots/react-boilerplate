@@ -1,15 +1,33 @@
 const path = require('path')
 const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const isProduction = process.argv.indexOf('-p') !== -1
 const BUILD_DIR = path.resolve(__dirname, 'dist')
 const APP_DIR = path.resolve(__dirname, 'src')
 
+//CSS Extractor used on build
 const extractCSS = new ExtractTextPlugin({
   filename: '[name].css',
   allChunks: true,
   disable: !isProduction
+})
+
+// Html Auto generator
+const HtmlPlugin = new HtmlWebpackPlugin({
+  title: 'React Skeleton',
+  template: require('html-webpack-template'),
+  baseHref: '/',
+  inject: false,
+  mobile: true,
+  meta: [
+    { charset: 'utf-8' },
+    {
+      name: 'description',
+      content: 'Quickly start developing an react application.'
+    }
+  ]
 })
 
 /**
@@ -18,6 +36,7 @@ const extractCSS = new ExtractTextPlugin({
 const getPlugins = () => {
   let plugins = [
     extractCSS,
+    HtmlPlugin,
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(
         isProduction ? 'production' : 'development'
@@ -50,12 +69,7 @@ module.exports = {
   // Entry of the project, use babel polyfill.
   // Can be configured to split into diferent files.
   entry: {
-    bundle: [
-      'babel-polyfill',
-      'whatwg-fetch',
-      APP_DIR + '/index.js',
-      APP_DIR + '/index.html'
-    ]
+    bundle: ['babel-polyfill', 'whatwg-fetch', APP_DIR + '/index.js']
   },
   // Output, directly into dist/
   output: {
@@ -66,17 +80,6 @@ module.exports = {
   module: {
     // Set up loaders to process your files
     rules: [
-      {
-        test: /index\.(html|prod\.html)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: 'index.html'
-            }
-          }
-        ]
-      },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         use: [

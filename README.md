@@ -7,6 +7,7 @@
 - Webpack Configured with a bunch of loaders of common use
   - NODE_ENV and API_URL Variable Replacement for a fast environment switching
   - HMR Configured as Development
+  - Auto HTML Generation with `html-webpack-plugin` & `html-webpack-template`
   - Webpack Dev Server Configured for Development
   - Babel6, Babel-Polyfill and whatwg-fetch to being able to use latest ES6+ Features
   - Image Optimization with `image-webpack-loader`
