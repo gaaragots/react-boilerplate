@@ -42,7 +42,7 @@ const getPlugins = () => {
         isProduction ? 'production' : 'development'
       ),
       'process.env.API_URL': JSON.stringify(
-        process.env.API_URL || 'http://localhost:8085/api'
+        process.env.API_URL || 'http://localhost:5000/api'
       )
     })
   ]

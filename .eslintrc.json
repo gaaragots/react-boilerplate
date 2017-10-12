@@ -8,12 +8,9 @@
     "prettier"
   ],
   "extends": "eslint:recommended",
-  "parserOptions": {
-      "sourceType": "module"
-  },
+  "parser": "babel-eslint",
   "rules": {
     "no-extra-semi": 0,
-    "no-mixed-spaces-and-tabs": 0,
     "jest/valid-expect": 0,
     "linebreak-style": ["error", "unix"],
     "prettier/prettier": [
