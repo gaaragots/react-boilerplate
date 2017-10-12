@@ -1,8 +1,9 @@
 import { types } from '../Actions/User'
+import { actions } from '../Actions/utils'
 
 export default (state = {}, action) => {
   switch (action.type) {
-    case `${types.LOGOUT_INTENT}_RESOLVED`:
+    case actions.asResolved(types.LOGOUT_INTENT):
       return {
         ...state,
         ...action.payload

@@ -15,12 +15,11 @@ import Register from './Components/Register'
 import Notifications from './Components/Notifications'
 import { PrivateRoute, OnlyPublicRoute } from './Components/Routing'
 
-const __store = store()
 const __init_el = document.createElement('div')
 __init_el.id = style.reactinit
 
 ReactDOM.render(
-  <Provider store={__store}>
+  <Provider store={store}>
     <ThemeProvider theme={theme}>
       <div>
         <Notifications />

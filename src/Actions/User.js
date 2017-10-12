@@ -31,19 +31,17 @@ export const actions = {
   /**
    * Generates an Authentication Resolved Action
    * @param {object} response - Fetch API response
-   * @param {object} payload - Fetch API Payload encoded as JSON
    */
-  AuthenticateResolved(response, payload) {
-    return ResolvedActionFactory(types.AUTHENTICATE_INTENT, response, payload)
+  AuthenticateResolved(response) {
+    return ResolvedActionFactory(types.AUTHENTICATE_INTENT, response)
   },
 
   /**
    * Generates an Authentication Rejected Action
    * @param {object} error - Fetch API response
-   * @param {object} payload - Fetch API Payload encoded as JSON
    */
-  AuthenticateRejected(error, payload) {
-    return RejectedActionFactory(types.AUTHENTICATE_INTENT, error, payload)
+  AuthenticateRejected(error) {
+    return RejectedActionFactory(types.AUTHENTICATE_INTENT, error)
   },
 
   /**
@@ -63,19 +61,17 @@ export const actions = {
   /**
    * Generates an User Create Resolved Action
    * @param {object} response - Fetch API response
-   * @param {object} payload - Fetch API Payload encoded as JSON
    */
-  UserCreateResolved(response, payload) {
-    return ResolvedActionFactory(types.USER_CREATE_INTENT, response, payload)
+  UserCreateResolved(response) {
+    return ResolvedActionFactory(types.USER_CREATE_INTENT, response)
   },
 
   /**
    * Generates an User Create Rejected Action
    * @param {object} error - Fetch API response
-   * @param {object} payload - Fetch API Payload encoded as JSON
    */
-  UserCreateRejected(error, payload) {
-    return RejectedActionFactory(types.USER_CREATE_INTENT, error, payload)
+  UserCreateRejected(error) {
+    return RejectedActionFactory(types.USER_CREATE_INTENT, error)
   },
 
   /**
@@ -92,19 +88,17 @@ export const actions = {
   /**
    * Generates an User Update Resolved Action
    * @param {object} response - Fetch API response
-   * @param {object} payload - Fetch API Payload encoded as JSON
    */
-  UserUpdateResolved(response, payload) {
-    return ResolvedActionFactory(types.USER_UPDATE_INTENT, response, payload)
+  UserUpdateResolved(response) {
+    return ResolvedActionFactory(types.USER_UPDATE_INTENT, response)
   },
 
   /**
    * Generates an User Update Rejected Action
    * @param {object} error - Fetch API response
-   * @param {object} payload - Fetch API Payload encoded as JSON
    */
-  UserUpdateRejected(error, payload) {
-    return RejectedActionFactory(types.USER_UPDATE_INTENT, error, payload)
+  UserUpdateRejected(error) {
+    return RejectedActionFactory(types.USER_UPDATE_INTENT, error)
   },
 
   /**
@@ -121,19 +115,17 @@ export const actions = {
   /**
    * Generates an User Activate Resolved Action
    * @param {object} response - Fetch API response
-   * @param {object} payload - Fetch API Payload encoded as JSON
    */
-  UserActivateResolved(response, payload) {
-    return ResolvedActionFactory(types.USER_ACTIVATE_INTENT, response, payload)
+  UserActivateResolved(response) {
+    return ResolvedActionFactory(types.USER_ACTIVATE_INTENT, response)
   },
 
   /**
    * Generates an User Update Rejected Action
    * @param {object} error - Fetch API response
-   * @param {object} payload - Fetch API Payload encoded as JSON
    */
-  UserActivateRejected(error, payload) {
-    return RejectedActionFactory(types.USER_ACTIVATE_INTENT, error, payload)
+  UserActivateRejected(error) {
+    return RejectedActionFactory(types.USER_ACTIVATE_INTENT, error)
   }
 }
 

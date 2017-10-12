@@ -1,23 +1,24 @@
+export const actions = {
+  asResolved: type => `${type}_RESOLVED`,
+  asRejected: type => `${type}_REJECTED`
+}
+
 /**
  * Generates an Resolved Action
  * @param {string} type - Constant with the type of action to dispatch
  * @param {object} response - Response object
- * @param {object} payload - Response Body
  */
-export const ResolvedActionFactory = (type, response, payload) => ({
-  type: `${type}_RESOLVED`,
-  response,
-  payload
+export const ResolvedActionFactory = (type, response) => ({
+  type: actions.asResolved(type),
+  ...response
 })
 
 /**
  * Generates an Rejected Action
  * @param {string} type - Constant with the type of action to dispatch
  * @param {object} error - Error object
- * @param {object} payload - Response Body
  */
-export const RejectedActionFactory = (type, error, payload) => ({
-  type: `${type}_REJECTED`,
-  error,
-  payload
+export const RejectedActionFactory = (type, error) => ({
+  type: actions.asRejected(type),
+  ...error
 })

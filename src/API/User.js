@@ -6,7 +6,7 @@ import { METHODS, HeaderFactory } from './utils'
  * @param {string} password - Password to log into the application
  */
 export const Authenticate = (email, password) => {
-  return fetch(`${process.env.API_URL}/users/authenticate`, {
+  return fetch(`${process.env.API_URL}/auth/login`, {
     method: METHODS.POST,
     headers: HeaderFactory(),
     body: JSON.stringify({ email, password })
@@ -18,7 +18,7 @@ export const Authenticate = (email, password) => {
  * @param {Object} user - User Data to Create
  */
 export const Create = user => {
-  return fetch(`${process.env.API_URL}/users`, {
+  return fetch(`${process.env.API_URL}/auth/register`, {
     method: METHODS.POST,
     headers: HeaderFactory(),
     body: JSON.stringify(user)

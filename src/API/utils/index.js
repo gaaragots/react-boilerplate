@@ -24,16 +24,32 @@ export const HeaderFactory = token => {
  * Handle Gracefully an HTTP Error
  * @param {Error} error - Fetch Error
  */
-export function* ErrorHandler(error) {
+async function ErrorHandler(error) {
   //eslint-disable-next-line no-console
   console.error(error)
   const genericResponse = { message: 'Something Went Wrong, try again later' }
   if (error && error.json) {
     try {
-      const data = yield error.json()
+      const data = await error.json()
       return data
     } catch (e) {
       return genericResponse
     }
   } else return genericResponse
+}
+
+/**
+ * Handle HTTP
+ * @param {Promise} req -  Fetch API Promise
+ */
+export async function Req(req) {
+  const res = await req
+
+  if (res && res.ok) {
+    return res
+  }
+
+  // The req has not been completed successfully and must be catched
+  const err = await ErrorHandler(res)
+  throw err
 }
