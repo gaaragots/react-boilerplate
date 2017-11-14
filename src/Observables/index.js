@@ -1,5 +1,4 @@
-import User from './User'
-import Notifications from './Notifications'
+import Reddit from './Reddit'
 import { combineEpics } from 'redux-observable'
 
-export default combineEpics(User, Notifications)
+export default combineEpics(Reddit)

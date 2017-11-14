@@ -1,9 +1,7 @@
 import { combineReducers } from 'redux'
 
-import User from './User'
-import Notifications from './Notifications'
+import Reddit from './Reddit'
 
 export default combineReducers({
-  User,
-  Notifications
+  Reddit
 })
