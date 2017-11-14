@@ -9,17 +9,12 @@ export default class Home extends Component {
     this.state = { value: '', search: false }
   }
 
-  onChange = e => this.setState({ value: e.target.value })
-  onSubmit = () => this.setState({ search: true })
+  onSubmit = e => this.setState({ search: true, value: e.search })
 
   render() {
     return (
       <div className="container">
-        <Search
-          value={this.state.value}
-          onChange={this.onChange}
-          onSubmit={this.onSubmit}
-        />
+        <Search onSubmit={this.onSubmit} />
         {this.state.search ? <Redirect to={`/r/${this.state.value}`} /> : null}
         <style jsx>{style}</style>
       </div>

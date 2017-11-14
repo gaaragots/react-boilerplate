@@ -19,12 +19,12 @@ export default css`
     border-bottom: 1px solid white;
   }
 
-  .search-box button:focus,
+  .search-box button[type='submit']:focus,
   .search-box input[type='search']:focus {
     outline: none;
   }
 
-  .search-box button {
+  .search-box button[type='submit'] {
     color: #fff;
     padding: 10px;
     margin-top: 10px;

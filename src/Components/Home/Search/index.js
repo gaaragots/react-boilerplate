@@ -1,20 +1,23 @@
 import style from './style'
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Field, reduxForm } from 'redux-form'
 
-const Search = ({ value, onChange, onSubmit }) => (
+const Search = ({ handleSubmit }) => (
   <div className="search-box">
     <h1>Search a Subreddit:</h1>
-    <input type="search" name="value" value={value} onChange={onChange} />
-    <button onClick={onSubmit}>Search!</button>
+    <form onSubmit={handleSubmit}>
+      <Field name="search" component="input" type="search" className="" />
+      <button tupe="submit">Search!</button>
+    </form>
     <style jsx>{style}</style>
   </div>
 )
 
 Search.propTypes = {
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-  onSubmit: PropTypes.func
+  handleSubmit: PropTypes.func
 }
 
-export default Search
+export default reduxForm({
+  form: 'search'
+})(Search)
