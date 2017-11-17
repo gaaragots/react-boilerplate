@@ -121,6 +121,6 @@ module.exports = {
   plugins: getPlugins(),
   resolve: {
     // Allow us to use peerDependencies on library packages
-    modules: [path.join(__dirname, 'node_modules')]
+    modules: ['node_modules', path.join(__dirname, 'node_modules')]
   }
 }
