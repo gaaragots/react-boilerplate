@@ -80,6 +80,7 @@ module.exports = {
   // Output, directly into dist/
   output: {
     path: BUILD_DIR,
+    publicPath: '/',
     filename: '[name].js',
     chunkFilename: '[name].js'
   },
