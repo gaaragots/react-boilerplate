@@ -1,24 +1,16 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 const isProduction = process.argv.indexOf('-p') !== -1
 const BUILD_DIR = path.resolve(__dirname, 'dist')
 const APP_DIR = path.resolve(__dirname, 'src')
 
-//CSS Extractor used on build
-const extractCSS = new ExtractTextPlugin({
-  filename: '[name].css',
-  allChunks: true,
-  disable: !isProduction
-})
-
 // Html Auto generator
 const HtmlPlugin = new HtmlWebpackPlugin({
   title: 'React Skeleton',
   template: require('html-webpack-template'),
-  appMountId: 'reactinit',
+  appMountId: 'app',
   baseHref: '/',
   inject: false,
   mobile: true,
@@ -36,7 +28,6 @@ const HtmlPlugin = new HtmlWebpackPlugin({
  */
 const getPlugins = () => {
   let plugins = [
-    extractCSS,
     HtmlPlugin,
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(
@@ -70,12 +61,7 @@ module.exports = {
   // Entry of the project, use babel polyfill.
   // Can be configured to split into diferent files.
   entry: {
-    bundle: [
-      'babel-polyfill',
-      'whatwg-fetch',
-      `${APP_DIR}/index.js`,
-      `${APP_DIR}/index.css`
-    ]
+    bundle: ['babel-polyfill', 'whatwg-fetch', `${APP_DIR}/index.js`]
   },
   // Output, directly into dist/
   output: {
@@ -103,19 +89,7 @@ module.exports = {
       },
       {
         test: /\.css/,
-        use: extractCSS.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: { sourceMap: true }
-            },
-            {
-              loader: 'postcss-loader',
-              options: { sourceMap: 'inline' }
-            }
-          ],
-          fallback: { loader: 'style-loader', options: { sourceMap: true } }
-        })
+        use: [{ loader: 'to-string-loader' }, { loader: 'css-loader' }]
       }
     ]
   },

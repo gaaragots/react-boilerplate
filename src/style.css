@@ -17,8 +17,8 @@ body {
 
 html,
 body,
-body #reactinit,
-body #reactinit > div[data-reactroot] {
+body #app,
+body #app > div[data-reactroot] {
   min-width: 100%;
   min-height: 100%;
 }

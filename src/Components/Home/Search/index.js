@@ -1,6 +1,7 @@
 import style from './style'
 import React from 'react'
 import PropTypes from 'prop-types'
+import { compose } from 'recompose'
 import { Field, reduxForm } from 'redux-form'
 
 const Search = ({ handleSubmit }) => (
@@ -18,6 +19,4 @@ Search.propTypes = {
   handleSubmit: PropTypes.func
 }
 
-export default reduxForm({
-  form: 'search'
-})(Search)
+export default compose(reduxForm({ form: 'search' }))(Search)
