@@ -61,7 +61,7 @@ module.exports = {
   // Entry of the project, use babel polyfill.
   // Can be configured to split into diferent files.
   entry: {
-    bundle: ['babel-polyfill', 'whatwg-fetch', `${APP_DIR}/index.js`]
+    bundle: ['@babel/polyfill', 'whatwg-fetch', `${APP_DIR}/index.js`]
   },
   // Output, directly into dist/
   output: {
